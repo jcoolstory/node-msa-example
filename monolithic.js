@@ -2,6 +2,9 @@
 const http = require('http');
 const url = require('url');
 const querystring = require('querystring');
+const members = require('./monolithic_members');
+const goods = require('./monolithic_goods');
+const purchases = require('./monolithic_purchases');
 
 var server = http.createServer((req, res) => {
     var method = req.method;

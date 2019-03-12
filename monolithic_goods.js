@@ -1,12 +1,15 @@
-const mysql = erquire('mysql');
+const mysql = require('mysql');
 const conn = {
     host:'localhost',
-    user:'micro',
+    user:'monolithic',
     password:'service',
-    database:'monolithic'
+    database:'monolithic',
+    port : 3377
 };
 
-exports.onReqeust = function(res, method, pathname, params, cb) {
+// maridadb : port number / 3377
+
+exports.onRequest = function(res, method, pathname, params, cb) {
 
     switch(method)  {
         case "POST" :
