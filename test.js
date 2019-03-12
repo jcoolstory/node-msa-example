@@ -30,7 +30,7 @@ function request(cb, params) {
 
 function goods(callback) {
     goods_post(()=>{
-        goods_post(()=>{
+        goods_get(()=>{
             goods_delete(callback);
         });
     });
@@ -42,7 +42,7 @@ function goods_post(cb) {
     request(cb, {
         name : "test Goods", 
         category : "tests", 
-        private : 1000,
+        price : 1000,
         description : "test"
     });
 }
@@ -70,7 +70,7 @@ function members(callback) {
         options.method = "POST"; 
         options.path = "/members";
         request(cb, {
-            username : "test_accoutn",
+            username : "test_account",
             password : "1234",
             passwordConfirm : "1234"
         });
@@ -78,7 +78,7 @@ function members(callback) {
 
     function members_get(cb) {
         options.method = "GET";
-        options.path = "/members?user=test_account&password=1234";
+        options.path = "/members?username=test_account&password=1234";
         request(cb);
     }
 
@@ -108,7 +108,7 @@ function purchases_post(cb) {
 
 function purchases_get(cb) { 
     options.method = "GET";
-    optionspath = "/purchases?userid=1";
+    options.path = "/purchases?userid=1";
     request(cb);
 }
 

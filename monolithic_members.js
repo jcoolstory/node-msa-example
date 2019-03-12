@@ -71,9 +71,11 @@ function inquiry(method, pathname, params, cb) {
     } else {
         var connection = mysql.createConnection(conn);
         connection.connect();
-        connection.query("select id from members where username ='" + 
-                        params.username + "' and password = password('" + 
-                        params.password + "');",
+        var query = "select id from members where username ='" + 
+                        params.username + "' and password = password('" +                         
+                        params.password + "');"
+        console.log(query);
+        connection.query(query,
                         (error, results, fields) => {
                             if (error || results.length == 0 )    {
                                 response.errorcode = 1;

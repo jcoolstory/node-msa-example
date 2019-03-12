@@ -94,7 +94,7 @@ function unregister(method, pathname, params, cb) {
     } else {
         var connection = mysql.createConnection(conn);
         connection.connect();
-        connection.query("delete form goods where id = ?",
+        connection.query("delete from goods where id = ?",
             [params.id],
             (error, results, fields) => {
                 if (error) {

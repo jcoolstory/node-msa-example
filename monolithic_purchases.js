@@ -8,7 +8,6 @@ const conn = {
 };
 
 exports.onRequest = function(res, method, pathname, params, cb) {
-
     switch(method)  {
         case "POST" :
             return register(method, pathname, params, (response) => {
@@ -67,10 +66,10 @@ function inquiry(method, pathname, params, cb) {
         response.errormessage = "Invalid Parameters";
         cb(response);
     } else { 
-        var connection = mysql.createConneiction(conn);
+        var connection = mysql.createConnection(conn);
         connection.connect();
         connection.query("select id, goodsid, date from purchases where userid = ?", 
-                [params,userid],
+                [params.userid],
                 (error, results, fields )=>{
                     if (error) {
                         response.errorcode = 1;
